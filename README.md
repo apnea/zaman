@@ -15,7 +15,7 @@ This setup provides a complete PyTorch development environment using NVIDIA's of
 docker compose up -d --build
 ```
 
-Jupyter Lab will start automatically and be available at: http://localhost:8888
+Jupyter Lab will start automatically and be available at: http://localhost:8889
 
 ### Access the container shell (if needed):
 ```bash
@@ -41,7 +41,7 @@ docker compose down
 
 ## Port Mappings
 
-- `8888`: Jupyter Lab (starts automatically)
+- `8889`: Jupyter Lab (starts automatically)
 - `6006`: TensorBoard
 - `8080`: General purpose
 
