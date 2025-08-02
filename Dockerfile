@@ -41,22 +41,5 @@ RUN pip install \
     wandb \
     tensorboard
 
-# Configure Jupyter Lab
-RUN jupyter lab --generate-config
-
-# Set Jupyter Lab password and configuration
-RUN python -c "from notebook.auth import passwd; print(passwd('jupyter'))" > /tmp/jupyter_password.txt && \
-    HASHED_PASSWORD=$(cat /tmp/jupyter_password.txt) && \
-    echo "c.ServerApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.port = 8888" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.open_browser = False" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.allow_root = True" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.token = ''" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.password = '$HASHED_PASSWORD'" >> /root/.jupyter/jupyter_lab_config.py && \
-    rm /tmp/jupyter_password.txt
-
 # Expose Jupyter port
 EXPOSE 8888
-
-# Set default command to start Jupyter Lab with explicit token disable
-CMD ["jupyter", "lab", "--allow-root", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--ServerApp.token="]
