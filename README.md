@@ -12,19 +12,19 @@ This setup provides a complete PyTorch development environment using NVIDIA's of
 
 ### Build and run the container:
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 Jupyter Lab will start automatically and be available at: http://localhost:8888
 
 ### Access the container shell (if needed):
 ```bash
-docker-compose exec pytorch-dev /bin/bash
+docker compose exec pytorch-dev /bin/bash
 ```
 
 ### Stop the container:
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Features
@@ -56,7 +56,10 @@ docker-compose down
 Jupyter Lab starts automatically when the container launches and is available at:
 http://localhost:8888
 
-**Note**: Authentication is disabled (no token or password required) for development convenience.
+**Login Credentials:**
+- Password: `jupyter`
+
+**Security Note**: The password is set during container build. To change it, modify the Dockerfile and rebuild the container.
 
 ## GPU Testing
 
