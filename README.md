@@ -31,6 +31,7 @@ docker-compose down
 
 - **Base Image**: `nvcr.io/nvidia/pytorch:23.12-py3`
 - **GPU Support**: Full NVIDIA GPU access
+- **Jupyter Lab**: Starts automatically on container launch
 - **Development Tools**: git, vim, nano, htop, tree, build-essential
 - **Python Packages**: 
   - Jupyter Lab/Notebook
@@ -40,7 +41,7 @@ docker-compose down
 
 ## Port Mappings
 
-- `8888`: Jupyter Lab/Notebook
+- `8888`: Jupyter Lab (starts automatically)
 - `6006`: TensorBoard
 - `8080`: General purpose
 
@@ -50,14 +51,12 @@ docker-compose down
 - Git configuration shared from host
 - SSH keys shared from host (read-only)
 
-## Starting Jupyter Lab
+## Jupyter Lab Access
 
-From inside the container:
-```bash
-jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
-```
+Jupyter Lab starts automatically when the container launches and is available at:
+http://localhost:8888
 
-Then access it at: http://localhost:8888
+**Note**: Authentication is disabled (no token or password required) for development convenience.
 
 ## GPU Testing
 
