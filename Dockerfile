@@ -21,11 +21,14 @@ RUN apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Install uv to /usr/local/bin
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh && mv /root/.local/bin/uv /usr/local/bin
+
 # Upgrade pip and install common Python packages
-RUN pip install --upgrade pip setuptools wheel
+RUN uv pip install --system --upgrade pip setuptools wheel
 
 # Install additional Python packages commonly used in ML development
-RUN pip install \
+RUN uv pip install --system \
     jupyter \
     jupyterlab \
     notebook \
@@ -39,7 +42,9 @@ RUN pip install \
     pillow \
     tqdm \
     wandb \
-    tensorboard
-
+    tensorboard \
+    antropy \
+    tsai \
+    tsflex
 # Expose Jupyter port
 EXPOSE 8888
