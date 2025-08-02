@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  pytorch-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zaman
+    # Enable GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    # Mount current directory to workspace
+    volumes:
+      - .:/workspace/zaman
+      - ~/.gitconfig:/root/.gitconfig:ro  # Share git config
+      - ~/.ssh:/root/.ssh:ro              # Share SSH keys (read-only)
+    
+    # Keep container running
+    stdin_open: true
+    tty: true
+    
+    # Expose common ports
+    ports:
+      - "8888:8888"  # Jupyter
+      - "6006:6006"  # TensorBoard
+      - "8080:8080"  # General purpose
+    
+    # Set environment variables
+    environment:
+      - PYTHONPATH=/workspace
+      - JUPYTER_ENABLE_LAB=yes
+    
+    networks:
+      - zaman-network
+
+networks:
+  zaman-network:
+    driver: bridge
