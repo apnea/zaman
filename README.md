@@ -2,14 +2,6 @@
 
 This setup provides a complete PyTorch development environment using NVIDIA's official PyTorch container as the base.
 
-## Prerequisites
-
-- Docker and Docker Compose installed
-- NVIDIA Docker runtime (for GPU support)
-- NVIDIA drivers installed on host system
-
-## Quick Start
-
 ### Build and run the container:
 ```bash
 docker compose up -d --build
@@ -50,16 +42,6 @@ docker compose down
 - Current directory (`zaman/`) mounted to `/workspace/zaman` in container
 - Git configuration shared from host
 - SSH keys shared from host (read-only)
-
-## Jupyter Lab Access
-
-Jupyter Lab starts automatically when the container launches and is available at:
-http://localhost:8888
-
-**Login Credentials:**
-- Password: `jupyter`
-
-**Security Note**: The password is set during container build. To change it, modify the Dockerfile and rebuild the container.
 
 ## GPU Testing
 
