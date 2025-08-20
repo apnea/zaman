@@ -8,7 +8,7 @@ RUN apt-get update && apt-get upgrade -y
 
 # Install commonly needed development tools
 RUN apt-get install -y \
-    fish\
+    fish \
     git \
     vim \
     nano \
