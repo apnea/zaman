@@ -1,6 +1,7 @@
 # Zaman PyTorch Development Container
 
 This setup provides a complete PyTorch development environment using NVIDIA's official PyTorch container as the base.
+Uses 23.12, the last container supporting the Pascal arch (see also https://docs.nvidia.com/deeplearning/frameworks/support-matrix/index.html#framework-matrix-2023)
 
 ### Build and run the container:
 ```bash
@@ -30,6 +31,8 @@ docker compose down
   - Common ML libraries (matplotlib, seaborn, plotly, pandas, numpy, scikit-learn)
   - Computer Vision (opencv-python, pillow)
   - Utilities (tqdm, wandb, tensorboard)
+
+See also https://docs.nvidia.com/deeplearning/frameworks/support-matrix/index.html#framework-matrix-2023
 
 ## Port Mappings
 
