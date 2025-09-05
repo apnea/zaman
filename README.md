@@ -45,9 +45,9 @@ if torch.cuda.is_available():
 
 ## Roadmap
 
-[x] pin correct python versions based on base container python install\n
-[x] remove redundant libs
-[ ] add unsloth.ai
+- [x] pin correct python versions based on base container python install
+- [x] remove redundant libs
+- [ ] add unsloth.ai
 
 ## Refs
 
