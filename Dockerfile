@@ -13,11 +13,12 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh && \
     mv /root/.local/bin/uv /usr/local/bin
 
-# Use requirements.txt for Python packages
-COPY requirements.txt ./
+# Copy high-level requirements
+COPY requirements.in ./
 
-# Install Python packages with version pinning
-RUN uv pip install --system --upgrade pip setuptools wheel && \
+# Upgrade core Python build tools and install dependencies
+RUN uv pip compile requirements.in -o requirements.txt && \
+    uv pip install --system --upgrade pip setuptools wheel && \
     uv pip install --system -r requirements.txt
 
 EXPOSE 8888
