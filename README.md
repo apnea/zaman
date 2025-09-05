@@ -10,16 +10,6 @@ docker compose up -d --build
 
 Jupyter Lab will start automatically and be available at: http://localhost:8889
 
-### Access the container shell (if needed):
-```bash
-docker compose exec pytorch-dev /bin/bash
-```
-
-### Stop the container:
-```bash
-docker compose down
-```
-
 ## Features
 
 - **Base Image**: `nvcr.io/nvidia/pytorch:23.12-py3`
@@ -57,3 +47,9 @@ if torch.cuda.is_available():
     print(f"Current device: {torch.cuda.current_device()}")
     print(f"Device name: {torch.cuda.get_device_name()}")
 ```
+
+## Roadmap
+
+[ ] pin correct python versions based on base container python install
+[ ] remove redundant libs
+[ ] install TensorRT / check
