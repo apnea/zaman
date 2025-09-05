@@ -3,11 +3,6 @@
 This setup provides a complete PyTorch development environment using NVIDIA's official PyTorch container as the base.
 Uses 23.12, the last container supporting the Pascal arch (see also https://docs.nvidia.com/deeplearning/frameworks/support-matrix/index.html#framework-matrix-2023)
 
-### Build and run the container:
-```bash
-docker compose up -d --build
-```
-
 Jupyter Lab will start automatically and be available at: http://localhost:8889
 
 ## Features
@@ -51,5 +46,12 @@ if torch.cuda.is_available():
 ## Roadmap
 
 [ ] pin correct python versions based on base container python install
+
 [ ] remove redundant libs
+
 [ ] install TensorRT / check
+
+## Refs
+
+https://jan.ai/post/benchmarking-nvidia-tensorrt-llm
+
