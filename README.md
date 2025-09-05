@@ -45,13 +45,14 @@ if torch.cuda.is_available():
 
 ## Roadmap
 
-[ ] pin correct python versions based on base container python install
-
-[ ] remove redundant libs
-
-[ ] install TensorRT / check
+[x] pin correct python versions based on base container python install\n
+[x] remove redundant libs
+[ ] add unsloth.ai
 
 ## Refs
 
 https://jan.ai/post/benchmarking-nvidia-tensorrt-llm
+
+TensorRT
+https://docs.nvidia.com/deeplearning/frameworks/container-release-notes/index.html#rel-23-11
 
